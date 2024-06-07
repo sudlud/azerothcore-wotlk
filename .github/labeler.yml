@@ -11,6 +11,7 @@ DB:
   - any-glob-to-any-file: 'data/**/*.sql'
 
 CORE:
+- some:
     - changed-files:
         - any-glob-to-any-file:
           - 'src/**/*'
