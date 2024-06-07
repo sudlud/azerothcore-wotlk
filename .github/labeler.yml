@@ -13,7 +13,7 @@ DB:
 CORE:
 - all:
     - changed-files:
-        - any-glob-to-any-file:
+        - all-globs-to-all-files:
           - 'src/**/*'
           - '!src/server/scripts/**/*'
           - '!src/test/**/*'
