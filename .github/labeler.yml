@@ -11,10 +11,10 @@ DB:
   - any-glob-to-any-file: 'data/**/*.sql'
 
 CORE:
-- all:
     - changed-files:
-        - all-globs-to-all-files:
+        - any-glob-to-any-file:
           - 'src/**/*'
+        - all-globs-to-all-files:
           - '!src/server/scripts/**/*'
           - '!src/test/**/*'
 
