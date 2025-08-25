@@ -1064,20 +1064,34 @@ void WorldObject::Update(uint32 diff)
 
 void WorldObject::setActive(bool on)
 {
+    if (on) LOG_ERROR("worldobject.error", "WorldObject::setActive( {} ) - {} - {}", on, m_name, ToCreature() ? ToCreature()->GetSpawnId() : 0);
+
     if (m_isActive == on)
+    {
+        if (on) LOG_ERROR("worldobject.error", "    FAIL: ALREADY SET");
         return;
+    }
 
     if (IsPlayer())
+    {
+        LOG_ERROR("worldobject.error", "    FAIL: IS PLAYER");
         return;
+    }
 
     m_isActive = on;
 
     if (!on || !IsInWorld())
+    {
+        if (on) LOG_ERROR("worldobject.error", "    FAIL: !on || !IsInWorld() - on: {} - IsInWorld(): {}", on, IsInWorld());
         return;
+    }
 
     Map* map = FindMap();
     if (!map)
+    {
+        if (on) LOG_ERROR("worldobject.error", "    FAIL: MAP NOT FOUND");
         return;
+    }
 
     map->AddObjectToPendingUpdateList(this);
 }
