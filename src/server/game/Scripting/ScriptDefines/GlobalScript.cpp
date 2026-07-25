@@ -178,7 +178,7 @@ void ScriptMgr::OnSpellDispel(Unit* dispeller, Unit* victim, uint32 dispelSpellI
     CALL_ENABLED_HOOKS(GlobalScript, GLOBALHOOK_ON_SPELL_DISPEL, script->OnSpellDispel(dispeller, victim, dispelSpellId, removedSpellId, isSteal));
 }
 
-GlobalScript::GlobalScript(const char* name, std::vector<uint16> enabledHooks)
+GlobalScript::GlobalScript(char const* name, std::vector<uint16> enabledHooks)
     : ScriptObject(name, GLOBALHOOK_END)
 {
     // If empty - enable all available hooks.
